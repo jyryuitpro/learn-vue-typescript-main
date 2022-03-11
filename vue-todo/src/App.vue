@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Vue Todo with Typescript</h1>
-    <TodoInput></TodoInput>
+    <TodoInput :item="todoText"></TodoInput>
   </div>
 </template>
 
@@ -11,6 +11,11 @@ import TodoInput from "@/components/TodoInput.vue";
 
 export default Vue.extend({
   components: { TodoInput },
+  data() {
+    return {
+      todoText: "",
+    };
+  },
 });
 </script>
 
