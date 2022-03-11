@@ -6,6 +6,8 @@
       @input="updateTodoText"
       @add="addTodoItem"
     ></TodoInput>
+    <!-- v-model 문법을 적용하려면 @input과 :value로 정의하셔야 합니다. :) -->
+    <!-- <TodoInput v-model="todoText" @add="addTodoItem"></TodoInput> -->
   </div>
 </template>
 
