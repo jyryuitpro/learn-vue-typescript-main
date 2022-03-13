@@ -13,7 +13,11 @@
       <!-- <TodoInput v-model="todoText" @add="addTodoItem"></TodoInput> -->
       <div>
         <ul>
-          <TodoListItem></TodoListItem>
+          <TodoListItem
+            v-for="(todoItem, index) in todoItems"
+            :key="index"
+            :todoItem="todoItem"
+          ></TodoListItem>
           <!-- <li>아이템 1</li> -->
           <!-- <li>아이템 2</li> -->
           <!-- <li>아이템 3</li> -->
