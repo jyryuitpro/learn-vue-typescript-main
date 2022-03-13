@@ -48,12 +48,18 @@ const storage = {
   },
 };
 
+interface Todo {
+  title: string;
+  done: boolean;
+}
+
 export default Vue.extend({
   components: { TodoListItem, TodoInput },
   data() {
     return {
       todoText: "",
-      todoItems: [] as any[],
+      // Vue에서 데이터 초기화 할 때, 타입 정의는 as를 사용합니다.
+      todoItems: [] as Todo[],
     };
   },
   methods: {
@@ -62,7 +68,11 @@ export default Vue.extend({
     },
     addTodoItem() {
       const value = this.todoText;
-      this.todoItems.push(value);
+      const todo: Todo = {
+        title: value,
+        done: false,
+      };
+      this.todoItems.push(todo);
       storage.save(this.todoItems);
       // localStorage.setItem(value, value);
       this.initTodoText();
