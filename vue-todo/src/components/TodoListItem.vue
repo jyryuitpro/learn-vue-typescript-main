@@ -19,6 +19,7 @@ export default Vue.extend({
     index: Number,
   },
   computed: {
+    // computed 속성은 꼭 반환 타입을 정의해주세요. :)
     todoItemClass(): string | null {
       return this.todoItem.done ? "complete" : null;
     },
