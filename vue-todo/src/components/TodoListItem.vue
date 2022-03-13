@@ -7,11 +7,13 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import Vue, { PropType } from "vue";
+import { Todo } from "@/App.vue";
 
 export default Vue.extend({
   props: {
-    todoItem: String,
+    // props 타입 정의 방법
+    todoItem: Object as PropType<Todo>,
     index: Number,
   },
   methods: {
