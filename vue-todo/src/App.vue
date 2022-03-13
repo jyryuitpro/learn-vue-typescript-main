@@ -75,6 +75,8 @@ export default Vue.extend({
     },
     removeTodoItem(index: number) {
       console.log("remove", index);
+      this.todoItems.splice(index, 1);
+      storage.save(this.todoItems);
     },
   },
   created() {
