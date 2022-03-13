@@ -1,6 +1,6 @@
 <template>
   <li>
-    <span class="item complete">{{ todoItem }}</span>
+    <span class="item complete" @click="toggleItem">{{ todoItem }}</span>
     <button @click="removeItem">삭제</button>
     <!-- <button @click="$emit('delete')">삭제</button> -->
   </li>
@@ -17,6 +17,9 @@ export default Vue.extend({
     index: Number,
   },
   methods: {
+    toggleItem() {
+      this.$emit("toggle", this.todoItem, this.index);
+    },
     removeItem() {
       this.$emit("remove", this.index);
     },

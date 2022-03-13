@@ -18,6 +18,7 @@
             :key="index"
             :index="index"
             :todoItem="todoItem"
+            @toggle="toggleTodoItemComplete"
             @remove="removeTodoItem"
           ></TodoListItem>
           <!-- <li>아이템 1</li> -->
@@ -86,6 +87,14 @@ export default Vue.extend({
     removeTodoItem(index: number) {
       console.log("remove", index);
       this.todoItems.splice(index, 1);
+      storage.save(this.todoItems);
+    },
+    toggleTodoItemComplete(todoItem: Todo, index: number) {
+      this.todoItems.splice(index, 1, {
+        ...todoItem,
+        // title: todoItem.title,
+        done: !todoItem.done,
+      });
       storage.save(this.todoItems);
     },
   },
